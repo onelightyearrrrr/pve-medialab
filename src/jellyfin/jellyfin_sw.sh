@@ -11,7 +11,7 @@ DIR=$( cd "$( dirname "${BASH_SOURCE}" )" && pwd )
 #---- Dependencies -----------------------------------------------------------------
 
 # Run Bash Header
-#source $DIR/basic_bash_utility.sh
+source $DIR/basic_bash_utility.sh
 
 #---- Static Variables -------------------------------------------------------------
 
@@ -42,8 +42,7 @@ apt-get update -y
 apt-get install jellyfin -y
 
 # Stop the service
-systemctl stop jellyfin.service
-sleep 5
+pct_stop_systemctl "jellyfin.service"
 
 # Edit the Jellyfin UID and GID
 OLDUID=$(id -u jellyfin)
@@ -52,20 +51,14 @@ usermod -u 1605 jellyfin >/dev/null
 groupmod -g 65605 jellyfin >/dev/null
 usermod -s /bin/bash jellyfin >/dev/null
 find / \( -path /mnt \) -prune -o -user "$OLDUID" -exec chown -h 1605 {} \; 2>/dev/null
-sleep 5
 find / \( -path /mnt \) -prune -o -group "$OLDGID" -exec chgrp -h 65605 {} \; 2>/dev/null
-sleep 5
 
 # Restart Jellyfin service
-systemctl -q daemon-reload
-sleep 2
-systemctl enable jellyfin.service
-systemctl start jellyfin.service
-sleep 2
+pct_restart_systemctl "jellyfin.service"
 
-# #---- Create App backup folder on NAS
-# if [ -d "/mnt/backup" ]
-# then
-#  su - $app_uid -c "mkdir -p /mnt/backup/$REPO_PKG_NAME"
-# fi
-# #-----------------------------------------------------------------------------------
+#---- Create App backup folder on NAS
+if [ -d "/mnt/backup" ]
+then
+ su - $REPO_PKG_NAME -c "mkdir -p /mnt/backup/$REPO_PKG_NAME"
+fi
+#-----------------------------------------------------------------------------------

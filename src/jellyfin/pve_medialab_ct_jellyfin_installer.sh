@@ -219,6 +219,7 @@ section "Install ${REPO_PKG_NAME^} software"
 
 #---- Run SW install
 # Jellyfin SW
+pct push $CTID $COMMON_DIR/bash/src/basic_bash_utility.sh /tmp/basic_bash_utility.sh -perms 755
 pct push $CTID $SRC_DIR/jellyfin/jellyfin_sw.sh /tmp/jellyfin_sw.sh -perms 755
 pct exec $CTID -- bash -c "export REPO_PKG_NAME=$REPO_PKG_NAME APP_USERNAME=$APP_USERNAME APP_GRPNAME=$APP_GRPNAME && /tmp/jellyfin_sw.sh"
 
