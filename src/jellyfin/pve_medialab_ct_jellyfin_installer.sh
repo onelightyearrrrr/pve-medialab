@@ -126,7 +126,7 @@ CT_NESTING='1'
 
 #----[CT_ROOTFS_OPTIONS]
 # Virtual Disk Size (GB).
-CT_SIZE='5'
+CT_SIZE='8'
 # Explicitly enable or disable ACL support.
 CT_ACL='1'
 

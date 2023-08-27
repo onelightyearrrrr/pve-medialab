@@ -56,7 +56,7 @@ DESCRIPTION=''
 # Virtual OS/processor architecture.
 ARCH='amd64'
 # Allocated memory or RAM (MiB).
-MEMORY='1024'
+MEMORY='2048'
 # Limit number of CPU sockets to use.  Value 0 indicates no CPU limit.
 CPULIMIT='0'
 # CPU weight for a VM. Argument is used in the kernel fair scheduler. The larger the number is, the more CPU time this VM gets.
