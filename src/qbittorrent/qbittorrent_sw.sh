@@ -38,9 +38,10 @@ apt-get install -y qbittorrent-nox
 
 # Create app .service with correct user startup
 mkdir -p /.config/qBittorrent/
+
 cat <<EOF >/.config/qBittorrent/qBittorrent.conf
 [Preferences]
-Downloads\SavePath=/mnt\/downloads\/torrent\/incomplete
+Downloads\SavePath=/mnt/downloads/torrent/incomplete
 WebUI\Password_PBKDF2="@ByteArray(amjeuVrF3xRbgzqWQmes5A==:XK3/Ra9jUmqUc4RwzCtrhrkQIcYczBl90DJw2rT8DFVTss4nxpoRhvyxhCf87ahVE3SzD8K9lyPdpyUCfmVsUg==)"
 WebUI\Port=8090
 WebUI\UseUPnP=false
@@ -52,6 +53,10 @@ cat <<EOF >/etc/systemd/system/qbittorrent-nox.service
 Description=qBittorrent client
 After=network.target
 [Service]
+Type=simple
+User=$app_uid
+Group=$app_guid
+UMask=007
 ExecStart=/usr/bin/qbittorrent-nox --webui-port=8090
 Restart=always
 [Install]

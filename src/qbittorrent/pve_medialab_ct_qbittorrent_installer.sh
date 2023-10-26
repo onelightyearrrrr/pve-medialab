@@ -60,7 +60,7 @@ MEMORY='1024'
 # Limit number of CPU sockets to use.  Value 0 indicates no CPU limit.
 CPULIMIT='0'
 # CPU weight for a VM. Argument is used in the kernel fair scheduler. The larger the number is, the more CPU time this VM gets.
-CPUUNITS='1024'
+CPUUNITS='2048'
 # The number of cores assigned to the vm/ct. Do not edit - its auto set.
 CORES='1'
 
@@ -88,7 +88,7 @@ SEARCHDOMAIN='local'
 
 #----[COMMON_NET_STATIC_OPTIONS]
 # IP address (IPv4). Only works with static IP (DHCP=0).
-IP='192.168.30.113'
+IP='192.168.30.179'
 # IP address (IPv6). Only works with static IP (DHCP=0).
 IP6=''
 # Default gateway for traffic (IPv4). Only works with static IP (DHCP=0).
@@ -126,7 +126,7 @@ CT_NESTING='1'
 
 #----[CT_ROOTFS_OPTIONS]
 # Virtual Disk Size (GB).
-CT_SIZE='5'
+CT_SIZE='8'
 # Explicitly enable or disable ACL support.
 CT_ACL='1'
 
