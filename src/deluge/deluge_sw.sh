@@ -32,19 +32,10 @@ su - $app_uid -c "mkdir -p /home/$app_uid/.config/deluge"
 #---- Installing Deluge
 
 #Installing software-properties-common
-apt-get install -y curl
-apt-get install -y sudo
-apt-get install -y mc
-
-#Updating Python3
-apt-get install -y \
-  python3 \
-  python3-dev \
-  python3-pip
+apt-get install software-properties-common -y
 
 # Installing Deluge
-pip install deluge[all]
-pip install lbry-libtorrent
+apt-get install -y deluged deluge-web deluge-console
 
 # Create app .service with correct user startup
 cat <<EOF | tee /etc/systemd/system/deluged.service >/dev/null
