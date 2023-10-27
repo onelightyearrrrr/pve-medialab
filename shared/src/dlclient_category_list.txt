@@ -3,6 +3,8 @@
 # CATEGORY DESTDIR WATCHDIR ALIASES
 radarr-movies:/mnt/downloads/${dl_type}/complete/movies:/mnt/public/autoadd/${dl_type}/radarr-movies:Movies*,*Movies,Movie*,*Movie:
 sonarr-series:/mnt/downloads/${dl_type}/complete/series:/mnt/public/autoadd/${dl_type}/sonarr-series:TV*:
+sonarr-anime:/mnt/downloads/${dl_type}/complete/anime:/mnt/public/autoadd/${dl_type}/sonarr-anime:Anime*:
+sonarr-show:/mnt/downloads/${dl_type}/complete/show:/mnt/public/autoadd/${dl_type}/sonarr-show:Show*:
 lidarr-music:/mnt/downloads/${dl_type}/complete/music:/mnt/public/autoadd/${dl_type}/lidarr-music:Music,Audio,Audio-mp3,Audio-Lossless,Audio-Other:
 whisparr-pron:/mnt/downloads/${dl_type}/complete/pron:/mnt/public/autoadd/${dl_type}/whisparr-pron:XXX,XXX*,adult*,porn:
 readarr-books:/mnt/downloads/${dl_type}/complete/books:/mnt/public/autoadd/${dl_type}/readarr-books:Books*,Audio-Audiobook:
